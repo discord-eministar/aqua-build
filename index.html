@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AquaBuild - Die besten Tools für deinen Alltag.">
+    <title>AquaBuild - Willkommen</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212; /* Dunkler Hintergrund */
+            color: #e0e0e0; /* Helle Schrift */
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            transition: transform 0.5s;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center; /* Zentrierte Navigation */
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap; /* Flex-wrap für mobile Ansicht */
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin: 5px; /* Abstand für mobile Ansicht */
+        }
+
+        .nav-links a:hover {
+            background: #383838;
+            color: #007aff;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        /* Tools Section */
+        .tools {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-in;
+        }
+
+        .tool {
+            background: #1f1f1f; /* Dunkle Box */
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; /* Zeige, dass die Box anklickbar ist */
+        }
+
+        .tool:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool h3 {
+            font-size: 1.8em;
+            color: #007aff;
+        }
+
+        .tool p {
+            font-size: 1em;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        /* Highlighted text */
+        .highlight {
+            background-color: #ffeb3b; /* Gelb für markierten Text */
+            color: #000; /* Schwarzer Text für besseren Kontrast */
+        }
+
+        /* Premium Section */
+        .premium {
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .premium h2 {
+            margin-bottom: 20px;
+            color: #007aff;
+            font-size: 2em;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Support Section */
+        .support {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Buttons */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007aff;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #0051a8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        /* Shopping Cart */
+        .cart {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #007aff;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cart:hover {
+            background: #0051a8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* KI Taschenrechner Box */
+        .calculator-box {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer; /* Zeige, dass die Box anklickbar ist */
+        }
+
+        .calculator-box h3 {
+            color: #007aff;
+            font-size: 1.8em;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Kleinere Schrift für mobile Geräte */
+            }
+
+            .tool {
+                width: 90%; /* Breitere Boxen für mobile Geräte */
+                margin: 10px 0; /* Weniger Abstand */
+            }
+
+            nav {
+                flex-direction: column; /* Navigation untereinander auf mobilen Geräten */
+                align-items: flex-start; /* Links ausrichten */
+            }
+
+            .nav-links {
+                display: none; /* Verstecke Links standardmäßig */
+                flex-direction: column; /* Links untereinander */
+                width: 100%; /* Volle Breite */
+            }
+
+            .nav-links.active {
+                display: flex; /* Zeige Links, wenn aktiv */
+            }
+
+            .menu-toggle {
+                display: block; /* Zeige Menü-Button */
+                color: #e0e0e0;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>AquaBuild - Minecraft Server</h1>
+        <p>Das beste vom besten</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Online Shop</a>
+            <a href="ränge.html">Ränge</a>
+            <a href="about.html">Über uns</a>
+            <a href="support.html">Support</a>
+        </div>
+    </nav>
+<!-- Main Container -->
+<div class="container">
+    <h2 id="tools">Unsere Dienstleistungen</h2>
+    <div class="tools">
+        <div class="tool" onclick="window.location.href='ränge.html'">
+            <h3>Unsere Ränge</h3>
+            <p>Wir verkaufen die besten Ränge für dich!</p>
+        </div>
+        <div class="tool" onclick="window.location.href='merch.html'">
+            <h3>Unseren Merch</h3>
+            <p>Zeige dich von deiner besten Seite mit unserem Merch!</p>
+        </div>
+        <div class="tool" onclick="window.location.href='shop.html'">
+            <h3>Unserer Onlineshop!</h3>
+            <p>Hol dir die besten Ingame Items!</p>
+        </div>
+        <div class="tool" onclick="window.location.href='support.html'">
+            <h3>Support</h3>
+            <p>Benutze unseren super schnellen Support! </p>
+        </div>
+        <div class="tool" onclick="window.location.href='tools.html'">
+                <h3>Und mehr!</h3>
+                <p>Wir haben noch viel mehr im Angebot!</p>
+        </div>
+    </div>
+       <div class="about" Id="about">
+        <h2>Spiel auf unserem Server!</h2>
+        <p>Tritt unserem Server bei und spiel erstklassigen CityBuild!</p>
+        <a href="spiel.html" class="button">Mehr erfahren</a>
+    </div>
+    
+    
+    <div class="about" id="about">
+        <h2>Über uns</h2>
+        <p>Wir sind ein engagiertes Entwickler Team.</p>
+        <a href="about.html" class="button">Mehr über uns!</a>
+    </div>
+    <div class="support" id="support">
+        <h2>Support</h2>
+        <p>Für Unterstützung und Fragen, kontaktiere uns!</p>
+        <a href="support.html" class="button">Kontaktiere uns!</a>
+    </div>
+</div>

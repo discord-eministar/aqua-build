@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ränge - AquaBuilder Minecraft Server">
+    <title>AquaBuild - Ränge</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center; /* Zentrierte Navigation */
+            align-items: center;
+            background: #1e1e1e;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap; /* Flex-wrap für mobile Ansicht */
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+            margin: 5px; /* Abstand für mobile Ansicht */
+        }
+
+        .nav-links a:hover {
+            background: #383838;
+            color: #007aff;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #383838);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .container {
+            padding: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rank-section {
+            margin-top: 40px;
+        }
+
+        .rank {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .rank:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Rainbow animation for rank titles */
+        .rank h2 {
+            font-size: 1.8em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff0080, #ff8c00, #ffea00, #00ff6a, #00c3ff, #d400ff);
+            background-size: 400%;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: rainbow 3s linear infinite;
+        }
+
+        /* Rank price */
+        .rank-price {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        
+        
+        .rank p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        /* Badge Styles */
+        .rank-badge {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 10px 0;
+            display: block;
+        }
+
+        /* Rainbow Animation */
+        @keyframes rainbow {
+            0% { background-position: 0%; }
+            100% { background-position: 100%; }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em; /* Kleinere Schrift für mobile Geräte */
+            }
+
+            .tool {
+                width: 90%; /* Breitere Boxen für mobile Geräte */
+                margin: 10px 0; /* Weniger Abstand */
+            }
+
+            nav {
+                flex-direction: column; /* Navigation untereinander auf mobilen Geräten */
+                align-items: flex-start; /* Links ausrichten */
+            }
+
+            .nav-links {
+                display: none; /* Verstecke Links standardmäßig */
+                flex-direction: column; /* Links untereinander */
+                width: 100%; /* Volle Breite */
+            }
+
+            .nav-links.active {
+                display: flex; /* Zeige Links, wenn aktiv */
+            }
+
+            .menu-toggle {
+                display: block; /* Zeige Menü-Button */
+                color: #e0e0e0;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Online Shop</a>
+            <a href="ränge.html">Ränge</a>
+            <a href="about.html">Über uns</a>
+            <a href="support.html">Support</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Unsere Ränge</h1>
+        <p>Erhalte spezielle Vorteile und unterstütze den AquaBuilder Server mit unseren exklusiven Rängen!</p>
+    </header>
+
+    <div class="container">
+        <!-- Legendärer Rang Section -->
+        <div class="rank-section" id="legendary">
+            <div class="rank">
+                <h2>Legendärer Rang</h2>
+                <span class="rank-price">Preis: 49,99€</span>
+                <span class="rank-badge">⭐ LEGENDÄR ⭐</span>
+                <p>Der Legendäre Rang bietet dir exklusive Rechte und Funktionen. Werde zu einer wahren Legende auf AquaBuild!</p>
+                <ul>
+                    <li>Exklusiver Zugang zu besonderen Welten</li>
+                    <li>Mehr Speicherplatz in deinem Inventar</li>
+                    <li>Einzigartige Haustiere und Fahrzeuge</li>
+                    <li>Hervorgehobener Name im Chat</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Premium Rang Section -->
+        <div class="rank-section" id="premium">
+            <div class="rank">
+                <h2>Premium Rang</h2>
+                <span class="rank-price">Preis: 29,99€</span>
+                <span class="rank-badge">💎 PREMIUM 💎</span>
+                <p>Genieße eine Vielzahl von Vorteilen und hebe dich als Premium-Spieler hervor!</p>
+                <ul>
+                    <li>Großzügigeres Grundstück</li>
+                    <li>Zugriff auf Premium-Kits</li>
+                    <li>Exklusive Emotes und Gesten</li>
+                    <li>Besonderer Rang im Discord</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Elite Rang Section -->
+        <div class="rank-section" id="elite">
+            <div class="rank">
+                <h2>Elite Rang</h2>
+                <span class="rank-price">Preis: 19,99€</span>
+                <span class="rank-badge">🔥 ELITE 🔥</span>
+                <p>Beweise deinen Status als Elite-Spieler und genieße tolle Vorteile!</p>
+                <ul>
+                    <li>Schnellerer Zugriff auf Ressourcen</li>
+                    <li>Besonderes Chat-Format</li>
+                    <li>Wöchentliche Belohnungen</li>
+                    <li>Zugriff auf exklusive Gebäude</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Unterstützer Rang Section -->
+        <div class="rank-section" id="supporter">
+            <div class="rank">
+                <h2>Unterstützer Rang</h2>
+                <span class="rank-price">Preis: 9,99€</span>
+                <span class="rank-badge">🌟 UNTERSTÜTZER 🌟</span>
+                <p>Trage zur Weiterentwicklung des Servers bei und genieße besondere Vorteile als Unterstützer!</p>
+                <ul>
+                    <li>Zugriff auf das Unterstützer-Kit</li>
+                    <li>Besonderer Unterstützer-Tag im Chat</li>
+                    <li>Zugang zu besonderen Events</li>
+                    <li>Erhalt von exklusiven kosmetischen Items</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
